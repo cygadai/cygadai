@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101827">
+  <meta name="description" content="CYGAD AI - IoT and embedded systems assistant">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="/static/style.css">
+  <title>CYGAD AI</title>
+</head>
+<body>
+  <main class="shell">
+    <header>
+      <div class="logo">C</div>
+      <div class="brand">
+        <h1>CYGAD AI</h1>
+        <p>IoT & Embedded Systems Assistant</p>
+      </div>
+      <button id="installBtn" class="small secondary" hidden>Install</button>
+    </header>
+
+    <section class="toolbar">
+      <label for="provider">AI mode</label>
+      <select id="provider">
+        <option value="AUTO">Automatic (Gemini → Groq → Local)</option>
+        <option value="GEMINI">Gemini only</option>
+        <option value="GROQ">Groq only</option>
+        <option value="LOCAL">Offline / Ollama only</option>
+      </select>
+      <button id="clearBtn" class="small secondary">New chat</button>
+    </section>
+
+    <section id="messages" class="messages" aria-live="polite">
+      <div class="welcome">
+        <div class="orb">✦</div>
+        <h2>Hello, engineer!</h2>
+        <p>I'm CYGAD AI. Ask me about ESP32, Arduino, sensors, electronics, IoT projects or code debugging.</p>
+        <div class="suggestions">
+          <button class="suggestion">Teach me ESP32 from the beginning</button>
+          <button class="suggestion">Give me a final-year IoT project idea</button>
+          <button class="suggestion">Explain MQTT with an example</button>
+        </div>
+      </div>
+    </section>
+
+    <form id="chatForm" class="composer">
+      <textarea id="prompt" rows="1" maxlength="8000" placeholder="Ask CYGAD AI anything about IoT..." required></textarea>
+      <button id="sendBtn" type="submit">Send ↑</button>
+    </form>
+    <p class="footnote">AI can make mistakes. Verify wiring, voltage and safety-critical instructions before building.</p>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>
